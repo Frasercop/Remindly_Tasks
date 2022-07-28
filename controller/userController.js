@@ -17,6 +17,15 @@ const getUserById = (id) => {
   return null;
 };
 
+const getUserByGithub = (profile) => {
+  let user = userModel.findById(profile.id);
+  if (user) {
+    return user;
+  }
+  let createduser = userModel.createUserwithGithub(profile);
+  return createduser;
+}
+
 function isUserValid(user, password) {
   return user.password === password;
 }

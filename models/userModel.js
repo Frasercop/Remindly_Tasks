@@ -34,6 +34,14 @@ const userModel = {
     }
     throw new Error(`Couldn't find user with id: ${id}`);
   },
+  createUserWithGithub: (profile) => {
+    const user = {
+      id: profile.id,
+      name: profile.displayName,
+    };
+    database.push(user);
+    return user;
+  },
 };
 
 module.exports = { database, userModel };
